@@ -1,8 +1,4 @@
-﻿// "potato" "at"
-
-// "pad" "adf"
-
-open System
+﻿open System
 
 // more efficient space complexity 
 let getMaxSubstringV1 (word1 : string) (word2 : string) : string =
@@ -17,13 +13,13 @@ let getMaxSubstringV1 (word1 : string) (word2 : string) : string =
             if slice.Length < k then
                 slice <- word1.AsSpan().Slice(i, k)
     slice.ToString()
-//potato
+
 (* more efficient time complexity
 |   | A | P | A | D | N |
-| A | 1 | 0 |_1_| 0 | 0 |
-| D | 0 | 1 | 0 |_2_| 0 |
-| N | 0 | 0 | 1 | 0 |_3_|
-| F | 0 | 0 | 0 | 1 | 0 | 
+| A | 1 | 0 | 1 | 0 | 0 |
+| D | 0 | 0 | 0 | 2 | 0 |
+| N | 0 | 0 | 0 | 0 | 3 |
+| F | 0 | 0 | 0 | 0 | 0 | 
 *)
 let getMaxSubstringV2 (word1 : string) (word2 : string) : string =
     let matrix = Array2D.zeroCreate word1.Length word2.Length
